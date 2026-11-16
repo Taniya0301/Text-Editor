@@ -1,6 +1,12 @@
 
+*{
+    box-sizing: border-box;
+}
+
 body{
     background-color: dimgrey;
+    margin: 0;
+    padding: 12px;
 }
 
 h1{
@@ -9,6 +15,7 @@ h1{
     font-family: serif;
     font-style: italic;
     font-size: 40px;
+    margin: 12px 0;
 }
 
 h2{
@@ -18,7 +25,8 @@ h2{
 }
 
 #settings{
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     padding: 20px;
     border: 2px solid goldenrod;
     border-radius: 15px;
@@ -39,7 +47,9 @@ select{
 }
 
 textarea{
-    width: 500px;
+    display: block;
+    width: 100%;
+    max-width: 500px;
     height: 250px;
     border: 2px solid goldenrod;
     border-radius: 15px;
@@ -59,4 +69,21 @@ button{
     background-color: rgba(139, 0, 0, 0.667);
     color: bisque;
     cursor: pointer;
+}
+
+
+@media (max-width: 600px){
+    h1{
+        font-size: 28px;
+    }
+
+    #settings{
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    textarea{
+        height: 220px;
+        font-size: 16px;
+    }
 }
