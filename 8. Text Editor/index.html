@@ -1,70 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Editor</title>
+    <meta name="description" content="A small text editor where you can customise the background colour, text colour and font.">
+    <title>Text Editor Customizer</title>
     <link rel="stylesheet" href="index.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <center>
-
+    <main class="page">
         <h1>Text Editor Customizer</h1>
-        <br>
 
-        <div id="settings">
+        <form id="settings-form" class="settings" aria-label="Editor settings">
+            <div class="field">
+                <label for="bg">Background Colour:</label>
+                <input type="color" id="bg" value="#ffffff">
+            </div>
 
-            <label>Background Colour:</label>
-            <input type="color" id="bg" value="#ffffff"
-            oninput="document.getElementById('box').style.backgroundColor=this.value">
+            <div class="field">
+                <label for="txt">Text Colour:</label>
+                <input type="color" id="txt" value="#000000">
+            </div>
 
-            <br><br>
+            <div class="field">
+                <label for="font">Font Family:</label>
+                <select id="font">
+                    <option value="Arial, sans-serif" selected>Arial</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="'Courier New', monospace">Courier New</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                </select>
+            </div>
+        </form>
 
-            <label>Text Colour:</label>
-            <input type="color" id="txt" value="#000000"
-            oninput="document.getElementById('box').style.color=this.value">
+        <h2 id="editor-heading">Your Editor Box</h2>
 
-            <br><br>
+        <textarea id="box" aria-labelledby="editor-heading" placeholder="Start typing here...."></textarea>
 
-            <label>Font Family:</label>
-            <select id="font" onchange="document.getElementById('box').style.fontFamily=this.value">
-                <option value="Arial">Arial</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Courier New">Courier New</option>
-                <option value="Times New Roman">Times New Roman</option>
-            </select>
-
-        </div>
-
-        <br>
-
-        <h2>Your Editor Box</h2>
-
-        <textarea id="box" placeholder="Start typing here...."></textarea>
-
-        <br><br>
-
-        <button onclick="reset()">Reset</button>
-
-    </center>
-
-    <script>
-
-        function reset()
-        {
-            document.getElementById('box').style.backgroundColor = "white";
-            document.getElementById('box').style.color = "black";
-            document.getElementById('box').style.fontFamily = "Arial";
-
-            document.getElementById('bg').value = "#ffffff";
-            document.getElementById('txt').value = "#000000";
-            document.getElementById('font').value = "Arial";
-        }
-
-    </script>
-
+        <button type="reset" form="settings-form" class="btn">Reset</button>
+    </main>
 </body>
 </html>

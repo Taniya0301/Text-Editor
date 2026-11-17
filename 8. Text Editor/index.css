@@ -1,88 +1,128 @@
+:root {
+    --page-bg: dimgrey;
+    --accent: goldenrod;
+    --text-light: bisque;
+    --panel-bg: rgba(0, 0, 0, 0.4);
+    --danger-bg: rgba(139, 0, 0, 0.667);
+    --content-width: 500px;
+}
 
-*{
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
-body{
-    background-color: dimgrey;
+body {
     margin: 0;
     padding: 12px;
+    background-color: var(--page-bg);
 }
 
-h1{
-    color: bisque;
-    -webkit-text-stroke: 1px goldenrod;
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 12px 0 24px;
+}
+
+h1,
+h2 {
+    margin: 0;
+    color: var(--text-light);
     font-family: serif;
     font-style: italic;
+    text-align: center;
+}
+
+h1 {
     font-size: 40px;
-    margin: 12px 0;
+    -webkit-text-stroke: 1px var(--accent);
 }
 
-h2{
-    color: bisque;
-    font-family: serif;
-    font-style: italic;
+h2 {
+    font-size: 1.5em;
 }
 
-#settings{
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     width: 100%;
-    max-width: 500px;
     padding: 20px;
-    border: 2px solid goldenrod;
+    border: 2px solid var(--accent);
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: bisque;
+    background-color: var(--panel-bg);
+    color: var(--text-light);
     font-family: serif;
     font-size: 18px;
 }
 
-input{
+.field {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+input[type="color"],
+select,
+.btn {
     cursor: pointer;
 }
 
-select{
+select {
     width: 150px;
     height: 30px;
     border-radius: 5px;
 }
 
-textarea{
+textarea {
     display: block;
     width: 100%;
-    max-width: 500px;
     height: 250px;
-    border: 2px solid goldenrod;
-    border-radius: 15px;
     padding: 15px;
+    border: 2px solid var(--accent);
+    border-radius: 15px;
     background-color: white;
     color: black;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     font-size: 18px;
     resize: none;
 }
 
-button{
+.btn {
     width: 85px;
     height: 40px;
     border: 2px solid transparent;
     border-radius: 10px;
-    background-color: rgba(139, 0, 0, 0.667);
-    color: bisque;
-    cursor: pointer;
+    background-color: var(--danger-bg);
+    color: var(--text-light);
 }
 
+/* Visible keyboard focus for every interactive element */
+:focus-visible {
+    outline: 3px solid var(--text-light);
+    outline-offset: 2px;
+}
 
-@media (max-width: 600px){
-    h1{
+@media (max-width: 600px) {
+    h1 {
         font-size: 28px;
     }
 
-    #settings{
+    .settings {
+        gap: 14px;
         padding: 14px;
         font-size: 16px;
     }
 
-    textarea{
+    textarea {
         height: 220px;
         font-size: 16px;
     }
